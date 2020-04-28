@@ -104,7 +104,19 @@ export default class App extends Component {
     }
   };
   reloadHandle = () => {
-    window.location.reload();
+    const box = this.state.box.map((val) => {
+      val.text = "";
+      val.clickEvent = true;
+      return val;
+    });
+    this.setState({
+      box: box,
+      palyText: "X",
+      eventContinue: true,
+      winMsg: "",
+      winnerText: "",
+      winStyle: null,
+    });
   };
   render() {
     return (
